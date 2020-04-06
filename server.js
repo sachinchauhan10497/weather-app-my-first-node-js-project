@@ -6,13 +6,15 @@ const request = require('request');
 const apiKey = "32d53531153c4c84ed535eb5608ab5cc";
 
 app.set('view engine', 'ejs')
+app.set('views', __dirname + '/views');
 
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', function (req, res) {
   // res.send('Hello World!')
   // res.render('index');
+  // console.log(__dirname)
 
   res.render('index', {weather: null, error: null});
 })
